@@ -47,31 +47,3 @@
 * Productivity
 * Smaller Teams
 
-!SLIDE
-# Increaing productivity affects Cost and Schedule
-
-!SLIDE
-# Increaing *testing* productivity affects "Works Properly"
-
-!SLIDE 
-# What *is* productivity, though?
-
-!SLIDE bullets incremental
-* <strike>LOC per hour</strike>
-* <strike>Story Points per Day</strike>
-* <strike>Bugs per week</strike>
-* More stuff done per time unit
-
-!SLIDE bullets incremental
-# Do the same with less
-* LOC
-* Hours
-* Developers
-
-!SLIDE bullets incremental
-# But without:
-* Affecting Maintainability
-* Introducing Risk
-
-!SLIDE
-# Scala is positioned to win on all counts
