@@ -1,18 +1,26 @@
 !SLIDE 
-# Same with fewer Hours
+# Scala saves you time
+## Without sacrificing maintainability or introducing risk
 
 !SLIDE center
 # Problem
 ## Test the neighbor comparison display
 <img src="nc.png">
 
+!SLIDE bullets
+# World's Briefest Architecture Document
+* Resource-oriented (<code>/person/:id/neighbor_comparison</code>)
+* One Resource, many views
+* <code>/person/:id/neighbor_comparison/summary
+* <code>/person/:id/neighbor_comparison/detailed
+
 !SLIDE bullets incremental
 # Tests
 * No unset message properties
 * You can't see until you login
 * You can't access someone else's comparison
-* The values from the back-end show up
 * The JSP page compiles and works
+* The values from the back-end show up
 
 !SLIDE smaller
 # Solution - JWebUnit
@@ -49,7 +57,7 @@
     public class WebTestNeighborComparision extends WebTestBase {
       @Test
       public void testValuesWhenComparisonExists() throws Exception {
-        loginAs(this.tester,"l4@test.com");
+        loginAs("l4@test.com");
         this.tester.goToPage(makeUrl(
             "/person/" + 45 + "/neighbors/comparison",
             "summary");
@@ -131,9 +139,17 @@
 * Tests are first thing to cut when schedules slip
 
 !SLIDE bullets incremental
+# Tests that take too long to make don't get created
+* Bugs still get found…later
+* We still have to fix them
+* But it just takes longer
+
+!SLIDE bullets incremental
 # Scala can help
+## (it helped OPOWER)
 * one weekend
 * make tests easier to write
+* make tests easier to read & maintain
 * don't require entire team to learn every Scala feature
 
 !SLIDE smaller
@@ -187,7 +203,7 @@ resource("person/{id}/neighbors/comparison",(resource) => {
   resource.shouldContain("1234").in("td").withClass("neighbors")
   resource.shouldContain("30").in("td").withClass("eff-neighbors")
   resource.hasView("summary")
-  <b>resource.hasView("graph")</b>
+  <b>resource.hasView("detailed")</b>
   })
 </pre>
 
@@ -201,7 +217,7 @@ resource("person/{id}/neighbors/comparison",(resource) => {
 
   resource.shouldContainElement("div").withClass("noData")
   resource.hasView("summary")
-  <b>resource.hasView("graph", (view) => {
+  <b>resource.hasView("detailed", (view) => {
     view.shouldContainLink("View Usage Data")
   })</b>
 })

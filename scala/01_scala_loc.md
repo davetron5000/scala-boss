@@ -1,6 +1,6 @@
 !SLIDE 
-# Same with fewer LOC
-## (this one's easy)
+# Scala saves you LOC
+## Without sacrificing maintainability or introducing risk
 
 !SLIDE 
 # Problem
@@ -52,7 +52,7 @@
 * In one case we are filtering a list, and the other we are searching it
 
 !SLIDE
-# AND
+# More Importantly:
 ## The business rules are buried admist collection searches
 
 !SLIDE smaller
@@ -81,8 +81,33 @@ private Account findAccountByType(
 }
 </pre>
 
-!SLIDE 
-# 24 LOC; only 4 are relevant to the task at hand
+!SLIDE smaller
+    @@@ Java
+    private Set<Account> findAccounts(Customer customer, Date date) {
+      Set<Account> accounts = newHashSet();
+      for (Account account : customer.getAccounts()) {
+        if (isDateInWindow(date,
+                    account.getMoveInDate(), 
+                    account.getMoveOutDate())) {
+          accounts.add(account);
+        }
+      }
+      return accounts;
+    }
+
+    private Account findAccountByType(
+            Set<Account> accounts, Energy energy) {
+      for (Account account : accounts) {
+        if (account.getServicePoint().getType() == energy) {
+          return account;
+        }
+      }
+      return null;
+    }
+
+!SLIDE bullets incremental
+# 24 LOC; only 4 are related to business logic
+* How quickly can you find them 6 months from now?
 
 !SLIDE smaller
 # Scala 
@@ -113,6 +138,12 @@ def findAccount(customer:Customer, energy:Energy, date:Date) = {
   } getOrElse null
 }
 </pre>
+
+!SLIDE bullets incremental
+# This is 100% statically typed
+* <code>accounts</code> is still a collection of <code>Account</code>
+* <code>account</code> is still an <code>Account</code>
+
 
 !SLIDE bullets incremental
 # Maintainability?
