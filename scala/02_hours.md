@@ -22,36 +22,8 @@
 * The JSP page compiles and works
 * The values from the back-end show up
 
-!SLIDE smaller
-# Solution - JWebUnit
-## Helper base class
-
-    @@@ Java
-    public class WebTestBase {
-      protected String makeUrl(String resource, String view);
-
-      protected void assertElementContains(
-          String element, String cssClass, String value);
-
-      protected void checkForMissingMessageProperties();
-
-      protected void assertElementPresent(
-          String element, String cssClass);
-
-      protected void assertElementPresentById(
-          String element, String id);
-
-      protected void loginAs(String email);
-
-      protected WebTester tester;
-
-      @Before public void setUp() throws Exception {
-        this.tester = new WebTester();
-      }
-    }
-
-!SLIDE smaller
-# Test Class
+!SLIDE small
+# JWebUnit-based Test Class
 
     @@@Java
     public class WebTestNeighborComparision extends WebTestBase {
