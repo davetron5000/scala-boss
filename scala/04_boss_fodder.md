@@ -20,14 +20,6 @@
 # Scala code would be just as easy to maintain as Java
 # **Over 50% Agreed**
 
-!SLIDE
-# How many developers based their decision to work here on our use of Scala?
-# ?
-
-!SLIDE
-# How many developers based their decision to work here on our use of Scala?
-# **Over 30%**
-
 !SLIDE 
 # Scala would have a positive impact on recruiting
 # ?
@@ -35,6 +27,14 @@
 !SLIDE 
 # Scala would have a positive impact on recruiting
 # **Over 75% Agreed**
+
+!SLIDE
+# How many developers based their decision to work here on our use of Scala?
+# ?
+
+!SLIDE
+# How many developers based their decision to work here on our use of Scala?
+# **Over 30%**
 
 !SLIDE center
 # Work would be more fun if we could use Scala
