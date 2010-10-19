@@ -43,22 +43,6 @@
 
 !SLIDE smaller
 # JWebUnit (con't)
-
-    @@@ Java
-      @Test
-      public void testValuesWhenComparisonNotPossible() 
-        throws Exception {
-        loginAs(this.tester,"l5@test.com");
-        this.tester.goToPage(makeUrl(
-            "/person/" + 46 + "/neighbors/comparison",
-            "summary");
-        checkForMissingMessageProperties();
-
-        assertElementPresent("div","noData");
-      }
-
-!SLIDE smaller
-# JWebUnit (con't)
 ## Don't forget to test the login requirements
 
     @@@ Java
@@ -128,23 +112,15 @@
 
     @@@Scala
     resource("person/{id}/neighbors/comparison",(resource) => {
-      resource.requiresLoginAs("l4@test.com")
-      resource.withIds(Map("id" -> "10024"))
-        .andWithErrors(Map("id" -> "10025") -> 403)
+     resource.requiresLoginAs("l4@test.com")
+     resource.withIds(Map("id" -> "10024"))
+       .andWithErrors(Map("id" -> "10025") -> 403)
 
-      resource.shouldContain("elec").in("span").withClass("type")
-      resource.shouldContain("45").in("td").withClass("you")
-      resource.shouldContain("1234").in("td").withClass("neighbors")
-      resource.shouldContain("30").in("td").withClass("eff-neighbors")
-      resource.hasView("summary")
-    })
-
-    resource("person/{id}/neighbors/comparison",(resource) => {
-      resource.requiresLoginAs("l5@test.com")
-      resource.withIds(Map("id" -> "10025"))
-
-      resource.shouldContainElement("div").withClass("noData")
-      resource.hasView("summary")
+     resource.shouldContain("elec").in("span").withClass("type")
+     resource.shouldContain("45").in("td").withClass("you")
+     resource.shouldContain("1234").in("td").withClass("neighbors")
+     resource.shouldContain("30").in("td").withClass("eff-neighbors")
+     resource.hasView("summary")
     })
 
 !SLIDE bullets incremental
@@ -177,22 +153,6 @@ resource("person/{id}/neighbors/comparison",(resource) => {
   resource.hasView("summary")
   <b>resource.hasView("detailed")</b>
   })
-</pre>
-
-!SLIDE smaller
-# A new view with its own constraints?
-
-<pre>
-resource("person/{id}/neighbors/comparison",(resource) => {
-  resource.requiresLoginAs("l5@test.com")
-  resource.withIds(Map("id" -> "10025"))
-
-  resource.shouldContainElement("div").withClass("noData")
-  resource.hasView("summary")
-  <b>resource.hasView("detailed", (view) => {
-    view.shouldContainLink("View Usage Data")
-  })</b>
-})
 </pre>
 
 !SLIDE bullets incremental
