@@ -92,7 +92,6 @@
 !SLIDE bullets incremental
 # How does this affect productivity?
 * Takes a lot of time to get right
-* Have to duplicate a LOT of tests when we add a new view
 * Tests are first thing to cut when schedules slip
 
 !SLIDE bullets incremental
