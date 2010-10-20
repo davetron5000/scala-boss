@@ -6,7 +6,7 @@
 # Problem
 ## Given a customer, find his active utility account for a given type of energy as of a given date
 
-!SLIDE small
+!SLIDE
 # Java
     @@@ Java
     private Account findAccount(
@@ -16,7 +16,7 @@
       return findAccountByType(accounts,energy);
     }
 
-!SLIDE smaller
+!SLIDE small
 # <code>findAccounts</code>
 
     @@@ Java
@@ -81,36 +81,12 @@ private Account findAccountByType(
 }
 </pre>
 
-!SLIDE smaller
-    @@@ Java
-    private Set<Account> findAccounts(Customer customer, Date date) {
-      Set<Account> accounts = newHashSet();
-      for (Account account : customer.getAccounts()) {
-        if (isDateInWindow(date,
-                    account.getMoveInDate(), 
-                    account.getMoveOutDate())) {
-          accounts.add(account);
-        }
-      }
-      return accounts;
-    }
-
-    private Account findAccountByType(
-            Set<Account> accounts, Energy energy) {
-      for (Account account : accounts) {
-        if (account.getServicePoint().getType() == energy) {
-          return account;
-        }
-      }
-      return null;
-    }
-
 !SLIDE bullets incremental
 # 24 LOC; only 4 are related to business logic
 * How quickly can you find them 6 months from now?
 
-!SLIDE smaller
-# Scala 
+!SLIDE
+## Scala 
 
     @@@ Scala
     def findAccount(customer:Customer, energy:Energy, date:Date) = {
@@ -124,20 +100,33 @@ private Account findAccountByType(
       } getOrElse null
     }
 
-!SLIDE smaller
-# 10 LOC; same 4 are relevant
-<pre>
-def findAccount(customer:Customer, energy:Energy, date:Date) = {
-  val accounts = customer.getAccounts filter { (account) => 
-    <b>isDateInWindow(date,
-            account.getMoveInDate,
-            account.getMoveInDate)</b>
-  }
-  accounts find { (account) => 
-    <b>account.getServicePoint.getType == energy</b>
-  } getOrElse null
-}
-</pre>
+!SLIDE
+## 10 LOC, same 4 are relevant
+
+    @@@ Scala
+    def findAccount(customer:Customer, energy:Energy, date:Date) = {
+      val accounts = customer.getAccounts filter { (account) => 
+        isDateInWindow(date,                      // <---
+                account.getMoveInDate,             // <---
+                account.getMoveInDate)             // <---
+      }
+      accounts find { (account) => 
+        account.getServicePoint.getType == energy  // <--
+      } getOrElse null
+    }
+
+
+!SLIDE 
+## Wait, why are we traversing the collection twice?
+    @@@ Scala
+    def findAccount(customer:Customer, energy:Energy, date:Date) = {
+      customer.getAccounts find { (account) => 
+        account.getServicePoint.getTime == energy && 
+          isDateInWindow(date,
+                account.getMoveInDate,
+                account.getMoveInDate)
+      } getOrElse null
+    }
 
 !SLIDE bullets incremental
 # This is 100% statically typed
@@ -152,4 +141,9 @@ def findAccount(customer:Customer, energy:Energy, date:Date) = {
 * Easier to change
 * Therefore more maintainable
 
+!SLIDE bullets incremental
+# Fewer LOC + More Maintainable 
+* Cheaper to build/maintain
+* Fast to build/change
+* Happy boss
 

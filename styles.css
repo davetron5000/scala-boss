@@ -74,8 +74,17 @@
 .content {
     font-family: 'PerspectiveSansRegular', Helvetica, Verdana, sans-serif;
 }
-h1 {
+em, i {
+    font-family: 'PerspectiveSansItalic', Helvetica, Verdana, sans-serif;
+    font-style: normal;
+}
+h1, h2, strong, b {
     font-family: 'PerspectiveSansBold', Helvetica, Verdana, sans-serif;
+}
+
+h1 em, h1 i, h2 em, h2 i {
+    font-family: 'PerspectiveSansBoldItalic', Helvetica, Verdana, sans-serif;
+    font-style: normal;
 }
 
 code, pre {

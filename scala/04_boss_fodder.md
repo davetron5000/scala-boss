@@ -1,14 +1,16 @@
 !SLIDE
 # More boss fodder
 
-!SLIDE
+!SLIDE bullets incremental
 # Survey of OPOWER Team (20+ Java Developers)
+* Average of 8.8 years experience 
+* 2 months to over 3 years with OPOWER
 
 !SLIDE
 # Parts of our codebase would be simpler in Scala
 # ?
 
-!SLIDE
+!SLIDE transition=fade
 # Parts of our codebase would be simpler in Scala
 # **Over 50% Agreed**
 
@@ -16,7 +18,7 @@
 # Scala code would be just as easy to maintain as Java
 # ?
 
-!SLIDE
+!SLIDE transition=fade
 # Scala code would be just as easy to maintain as Java
 # **Over 50% Agreed**
 
@@ -24,7 +26,7 @@
 # Scala would have a positive impact on recruiting
 # ?
 
-!SLIDE 
+!SLIDE transition=fade
 # Scala would have a positive impact on recruiting
 # **Over 75% Agreed**
 
@@ -32,27 +34,27 @@
 # How many developers based their decision to work here on our use of Scala?
 # ?
 
-!SLIDE
+!SLIDE transition=fade
 # How many developers based their decision to work here on our use of Scala?
 # **Over 30%**
 
-!SLIDE center
+!SLIDE
 # Work would be more fun if we could use Scala
 # ?
 
-!SLIDE center
+!SLIDE transition=fade
 # Work would be more fun if we could use Scala
 # **Over 75%**
 
 !SLIDE bullets incremental
 # Using Scala will
-* Make your team more productive
-* Result in more maintainable code and tests
+* Make your team more productive - *cheaper and faster delivery*
+* Result in more maintainable code and tests - *better delivery*
 * Keep risks low
 * Attract talent
 * Make your team happy
 
-!SLIDE smbullets
+!SLIDE bullets
 # Thanks!
 * [@davetron5000](http://www.twitter.com/davetron5000) / dave @ opower.com
 * Slides on Github [github.com/davetron5000/scala-boss](http://www.github.com/davetron5000/scala-boss)

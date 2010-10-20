@@ -7,19 +7,21 @@
 ## Test the neighbor comparison display
 <img src="nc.png">
 
-!SLIDE bullets
+!SLIDE smbullets incremental
 # World's Briefest Architecture Document
-* Resource-oriented (<code>/person/:id/neighbor_comparison</code>)
-* One Resource, many views
+## OPOWER's Web Application Architecture
+* <div style="font-size: 130%">Resource-oriented:</div>
+* <code>/person/:id/neighbor_comparison</code>
+* <div style="font-size: 130%">One Resource, many views:</div>
 * <code>/person/:id/neighbor_comparison/summary
 * <code>/person/:id/neighbor_comparison/detailed
 
 !SLIDE bullets incremental
-# Tests
-* No unset message properties
-* You can't see until you login
-* You can't access someone else's comparison
+# Test that:
 * The JSP page compiles and works
+* All message properties are set
+* You must login
+* You can't access someone else's comparison
 * The values from the back-end show up
 
 !SLIDE small
@@ -82,22 +84,21 @@
 
 !SLIDE bullets incremental
 # So what's the problem?
-* Hard to read assertions
+* Hard to read assertions (e.g. <code>assertElementContains(x,y,z)</code>)
 * Fair amount of boilerplate
 * Almost every test needs <code>testLoginRequired</code> and <code>testSecureFromOtherUsers</code> (easy to forget)
 * Testing for HTTP status codes sucks
 
 !SLIDE bullets incremental
 # How does this affect productivity?
-* Takes a lot of effort to get right
+* Takes a lot of time to get right
 * Have to duplicate a LOT of tests when we add a new view
-* Can't hide it all with superclasses/helpers
 * Tests are first thing to cut when schedules slip
 
 !SLIDE bullets incremental
 # Tests that take too long to make don't get created
 * Bugs still get found…later
-* We still have to fix them
+* And we still have to fix them
 * But it just takes longer
 
 !SLIDE bullets incremental
@@ -125,7 +126,7 @@
 
 !SLIDE bullets incremental
 # Better?
-* assertions more clear
+* assertions more clear (e.g. <code>shouldContain</code>, <code>withClass</code>)
 * structure more clear (e.g. <code>hasView</code>)
 * little boilerplate
 * not *too* alien
@@ -137,6 +138,7 @@
 !SLIDE bullets incremental
 # What about checking for login required?
 * baked into framework…impossible to forget to check
+* <code>requiresLoginAs</code> - ensures we login **and** checks that it's required
 
 !SLIDE small
 # What if we add a new view?
@@ -151,7 +153,6 @@
       resource.shouldContain("1234").in("td").withClass("neighbors")
       resource.shouldContain("30").in("td").withClass("eff-neighbors")
       resource.hasView("summary")
-
     })
 
 !SLIDE small
@@ -174,7 +175,7 @@
 # "Crazy" Scala features required
 * Function Literals:  <code>(arg) => { body }</code>
 * Collection "Literals": <code>Map(key -> value)</code>
-* That's *IT*
+* That's **IT**
 
 !SLIDE bullets incremental
 # How does this affect hours?
