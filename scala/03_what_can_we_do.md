@@ -49,9 +49,6 @@
 * Even higher reward
 * Smaller team, easier ramp up
 
-!SLIDE center
-<img src="injection_summary.png" />
-
 !SLIDE bullets incremental
 # Judicious use of Scala features
 * Start slowly

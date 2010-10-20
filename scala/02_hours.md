@@ -41,7 +41,7 @@
         assertElementContains("td","eff-neighbors","30");
       }
 
-!SLIDE smaller
+!SLIDE 
 # JWebUnit (con't)
 ## Don't forget to test the login requirements
 
@@ -108,7 +108,7 @@
 * make tests easier to read & maintain
 * don't require entire team to learn every Scala feature
 
-!SLIDE smaller
+!SLIDE small
 
     @@@Scala
     resource("person/{id}/neighbors/comparison",(resource) => {
@@ -138,22 +138,37 @@
 # What about checking for login required?
 * baked into framework…impossible to forget to check
 
-!SLIDE smaller
+!SLIDE small
 # What if we add a new view?
-<pre>
-resource("person/{id}/neighbors/comparison",(resource) => {
-  resource.requiresLoginAs("l4@test.com")
-  resource.withIds(Map("id" -> "10024"))
-    .andWithErrors(Map("id" -> "10025") -> 403)
+    @@@ Java
+    resource("person/{id}/neighbors/comparison",(resource) => {
+      resource.requiresLoginAs("l4@test.com")
+      resource.withIds(Map("id" -> "10024"))
+        .andWithErrors(Map("id" -> "10025") -> 403)
 
-  resource.shouldContain("elec").in("span").withClass("type")
-  resource.shouldContain("45").in("td").withClass("you")
-  resource.shouldContain("1234").in("td").withClass("neighbors")
-  resource.shouldContain("30").in("td").withClass("eff-neighbors")
-  resource.hasView("summary")
-  <b>resource.hasView("detailed")</b>
-  })
-</pre>
+      resource.shouldContain("elec").in("span").withClass("type")
+      resource.shouldContain("45").in("td").withClass("you")
+      resource.shouldContain("1234").in("td").withClass("neighbors")
+      resource.shouldContain("30").in("td").withClass("eff-neighbors")
+      resource.hasView("summary")
+
+    })
+
+!SLIDE small
+# What if we add a new view?
+    @@@ Java
+    resource("person/{id}/neighbors/comparison",(resource) => {
+      resource.requiresLoginAs("l4@test.com")
+      resource.withIds(Map("id" -> "10024"))
+        .andWithErrors(Map("id" -> "10025") -> 403)
+
+      resource.shouldContain("elec").in("span").withClass("type")
+      resource.shouldContain("45").in("td").withClass("you")
+      resource.shouldContain("1234").in("td").withClass("neighbors")
+      resource.shouldContain("30").in("td").withClass("eff-neighbors")
+      resource.hasView("summary")
+      resource.hasView("detailed") // <-- add one line
+    })
 
 !SLIDE bullets incremental
 # "Crazy" Scala features required

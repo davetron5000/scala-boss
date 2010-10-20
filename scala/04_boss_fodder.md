@@ -57,3 +57,5 @@
 * [@davetron5000](http://www.twitter.com/davetron5000) / dave @ opower.com
 * Slides on Github [github.com/davetron5000/scala-boss](http://www.github.com/davetron5000/scala-boss)
 * Slides online [scala-boss.heroku.com](http://scala-boss.heroku.com)
+* <div style="font-size: 50%"><code>BPMono Font</code> - <i>[by Backpacker](http://www.backpacker.gr/) licensed under [Creative Commons Attribution-No Derivative Works 3.0 Unported](http://www.fontsquirrel.com/license/BPmono)</i></div>
+* <div style="font-size: 50%">Perspective-Sans - <i>[Freeware font](http://www.fontsquirrel.com/fonts/Perspective-Sans)</i></div>
