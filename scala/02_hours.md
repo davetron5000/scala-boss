@@ -16,6 +16,11 @@
 * <code>/person/:id/neighbor_comparison/summary
 * <code>/person/:id/neighbor_comparison/detailed
 
+!SLIDE center
+# Problem
+## Test the neighbor comparison display
+<img src="nc.png">
+
 !SLIDE bullets incremental
 # Test that:
 * The JSP page compiles and works
