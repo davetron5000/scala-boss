@@ -2,7 +2,7 @@
 
 Slides for my talk at NovaJUG, October 2010
 
-_In Progress_
+* [Slides Online](http://scala-boss.heroku.com)
 
 # Building
 
