@@ -93,7 +93,7 @@ private Account findAccountByType(
       val accounts = customer.getAccounts filter { (account) => 
         isDateInWindow(date,
                 account.getMoveInDate,
-                account.getMoveInDate)
+                account.getMoveOutDate)
       }
       accounts find { (account) => 
         account.getServicePoint.getType == energy
@@ -108,7 +108,7 @@ private Account findAccountByType(
       val accounts = customer.getAccounts filter { (account) => 
         isDateInWindow(date,                      // <---
                 account.getMoveInDate,             // <---
-                account.getMoveInDate)             // <---
+                account.getMoveOutDate)            // <---
       }
       accounts find { (account) => 
         account.getServicePoint.getType == energy  // <--
@@ -121,10 +121,10 @@ private Account findAccountByType(
     @@@ Scala
     def findAccount(customer:Customer, energy:Energy, date:Date) = {
       customer.getAccounts find { (account) => 
-        account.getServicePoint.getTime == energy && 
+        account.getServicePoint.getType == energy && 
           isDateInWindow(date,
                 account.getMoveInDate,
-                account.getMoveInDate)
+                account.getMoveOutDate)
       } getOrElse null
     }
 

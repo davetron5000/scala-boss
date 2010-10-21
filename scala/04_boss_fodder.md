@@ -1,6 +1,11 @@
 !SLIDE
 # More boss fodder
 
+!SLIDE bullets
+# Scala has Paid Support
+* [www.scalasolutions.com](http://www.scalasolutions.com/)
+* Owned/operated by the creators of Scala
+
 !SLIDE bullets incremental
 # Survey of OPOWER Team (20+ Java Developers)
 * Average of 8.8 years experience 
@@ -15,11 +20,11 @@
 # **Over 50% Agreed**
 
 !SLIDE
-# Scala code would be just as easy to maintain as Java
+# Scala code would be as easy to maintain as Java
 # ?
 
 !SLIDE transition=fade
-# Scala code would be just as easy to maintain as Java
+# Scala code would be as easy to maintain as Java
 # **Over 50% Agreed**
 
 !SLIDE 
@@ -31,11 +36,11 @@
 # **Over 75% Agreed**
 
 !SLIDE
-# How many developers based their decision to work here on our use of Scala?
+# Based their decision to work here, in part, on our use of Scala?
 # ?
 
 !SLIDE transition=fade
-# How many developers based their decision to work here on our use of Scala?
+# Based their decision to work here, in part, on our use of Scala?
 # **Over 30%**
 
 !SLIDE
@@ -47,12 +52,12 @@
 # **Over 75%**
 
 !SLIDE bullets incremental
-# Using Scala will
-* Make your team more productive - *cheaper and faster delivery*
-* Result in more maintainable code and tests - *better delivery*
-* Keep risks low
+# Using Scala will let you
+* Better deliver software that works
+* Deliver software faster
+* Deliver software cheaper
 * Attract talent
-* Make your team happy
+* Have a happy dev team
 
 !SLIDE bullets
 # Thanks!

@@ -60,105 +60,38 @@
 
 !SLIDE smaller
 # Case class awesome
-## Java (not so awesome)
+## Turn this
     @@@ Java
-    public class ResourceUsage implements TimeWindow {
-
+    public class ResourceUsage {
         private final long fromDateMillis;
         private final long toDateMillis;
         private final BigDecimal usageValue;
-
         private final long durationSeconds;
-        private String stringRepresentation;
 
         public ResourceUsage(long fromDateMillis, long toDateMillis, BigDecimal usageValue) {
-            if (toDateMillis <= fromDateMillis) {
-                throw new IllegalArgumentException(toDateMillis + " must be after " + fromDateMillis);
-            }
-            if (usageValue == null) {
-                throw new IllegalArgumentException("cannot have null usage");
-            }
             this.fromDateMillis = fromDateMillis;
             this.toDateMillis = toDateMillis;
             this.usageValue = usageValue;
             this.durationSeconds = ((toDateMillis - fromDateMillis) / 1000) + 1;
         }
 
-        public final Date getFromDate() {
-            return new Date(fromDateMillis);
-        }
-
-!SLIDE smaller
-# Case class awesome
-## Java (still not so awesome)
-    @@@ Java
-        public final Date getToDate() {
-            return new Date(toDateMillis);
-        }
-
-        public final Date getStartDate() {
-            return getFromDate();
-        }
-
-        public final Date getEndDate() {
-            return getToDate();
-        }
-
-        public DateRange getDateRange() {
-            return new DateRange(getFromDate(), getToDate());
-        }
-
-        final long getFromDateAsTime() {
-            return this.fromDateMillis;
-        }
-
-        final long getToDateAsTime() {
-            return this.toDateMillis;
-        }
-
-        public BigDecimal getUsageValue() {
-            return this.usageValue;
-        }
-
-!SLIDE smaller
-# Case class awesome
-## Java (all this for a simple data structure?)
-
-    @@@ Java
-        public final long getDurationSeconds() {
-            return this.durationSeconds;
-        }
+        public final Date getFromDate() { return new Date(fromDateMillis); }
+        public final Date getToDate() { return new Date(toDateMillis); }
+        public BigDecimal getUsageValue() { return this.usageValue; }
+        public final long getDurationSeconds() { return this.durationSeconds; }
 
         public String toString() {
-            if (this.stringRepresentation == null) {
-                this.stringRepresentation = createStringRepresentation();
-            }
-            return this.stringRepresentation;
-        }
-
-        protected String createStringRepresentation() {
             return String.format("%tc - %tc, %f", getFromDate(),getToDate(),this.usageValue.doubleValue());
         }
     }
 
 !SLIDE smaller 
 # Case class awesome
-## Scala
+## Into this
 
     @@@ Scala
-    case class ResourceUsage(fromDateMillis:long,toDateMillis:long,usageValue:BigDecimal) 
-      extends TimeWindow {
-
-      if (toDateMillis <= fromDateMillis) {
-        throw new IllegalArgumentException(toDateMillis + " must be after " + fromDateMillis);
-      }
-      if (usageValue == null) {
-        throw new IllegalArgumentException("cannot have null usage");
-      }
+    case class ResourceUsage(fromDateMillis:long,toDateMillis:long,usageValue:BigDecimal) {
       val durationSeconds = ((toDateMillis - fromDateMillis) / 1000) + 1;
       def fromDate = new Date(fromDateMillis)
       def toDate = new Date(toDateMillis);
-      def getStartDate = fromDate
-      def getEndDate = toDate
-      def dateRange = new DateRange(fromDate,toDate)
     }
