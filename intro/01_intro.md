@@ -6,6 +6,7 @@
 * [naildrivin5.com/blog](http://www.naildrivin5.com/blog)
 * Slides on Github [github.com/davetron5000/scala-boss](http://www.github.com/davetron5000/scala-boss)
 * Slides online [scala-boss.heroku.com](http://scala-boss.heroku.com)
+* <i>(Note: arrow keys should navigate you, hit "z" to get help on using this presentation)</i>
 
 !SLIDE bullets incremental
 # Convince your Boss
