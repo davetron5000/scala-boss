@@ -1,4 +1,4 @@
 bluecloth
 nokogiri
-showoff --version ">= 0.3.2"
+showoff --version ">= 0.4.2"
 gli
